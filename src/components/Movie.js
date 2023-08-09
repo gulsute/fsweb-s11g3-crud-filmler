@@ -53,7 +53,7 @@ const Movie = (props) => {
       <div className="px-5 py-3 border-t border-zinc-200 flex justify-end gap-2">
         <button
           onClick={() => {
-            addToFavorites(movie);
+            addToFavorites(movie.id);
           }}
           className="myButton bg-blue-600 hover:bg-blue-500 "
         >

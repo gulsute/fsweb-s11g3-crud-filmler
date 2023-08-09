@@ -34,8 +34,10 @@ const App = (props) => {
       .catch((err) => console.log(err.response));
   };
 
-  const addToFavorites = (movie) => {
-    setFavoriteMovies([...favoriteMovies, movie]);
+  const addToFavorites = (movieId) => {
+    const favMovie = movies.find((movie) => movie.id === movieId);
+    if (!favoriteMovies.find((movie) => movie.id === movieId))
+      setFavoriteMovies([...favoriteMovies, favMovie]);
   };
 
   return (
