@@ -34,7 +34,9 @@ const App = (props) => {
       .catch((err) => console.log(err.response));
   };
 
-  const addToFavorites = (movie) => {};
+  const addToFavorites = (movie) => {
+    setFavoriteMovies([...favoriteMovies, movie]);
+  };
 
   return (
     <div>
@@ -57,7 +59,10 @@ const App = (props) => {
             </Route>
 
             <Route path="/movies/:id">
-              <Movie handleDelete={handleDelete} />
+              <Movie
+                handleDelete={handleDelete}
+                addToFavorites={addToFavorites}
+              />
             </Route>
 
             <Route path="/movies">
