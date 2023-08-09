@@ -26,7 +26,12 @@ const App = (props) => {
       });
   }, []);
 
-  const deleteMovie = (id) => {};
+  const handleDelete = (id) => {
+    axios
+      .delete(`http://localhost:9000/api/movies/${id}`)
+      .then((res) => setMovies(res.data))
+      .catch((err) => console.log(err.response));
+  };
 
   const addToFavorites = (movie) => {};
 
@@ -47,7 +52,7 @@ const App = (props) => {
             </Route>
 
             <Route path="/movies/:id">
-              <Movie />
+              <Movie handleDelete={handleDelete} />
             </Route>
 
             <Route path="/movies">
